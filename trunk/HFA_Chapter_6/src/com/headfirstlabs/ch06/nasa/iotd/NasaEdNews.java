@@ -22,7 +22,8 @@ public class NasaEdNews extends ListFragment implements EdNewsHandlerListener {
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.ed_news, container, false);
+//		return inflater.inflate(R.layout.ed_news, container, false);
+		return null;
 	}
 
 	public void onStart() {
