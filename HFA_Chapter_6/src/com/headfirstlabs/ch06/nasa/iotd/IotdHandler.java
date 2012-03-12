@@ -105,11 +105,11 @@ public class IotdHandler extends DefaultHandler {
             xr.parse(new InputSource(url.openStream()));
                
         } catch (IOException e) {
-            Log.e("", e.toString());
+            Log.e(TAG, e.toString());
         } catch (SAXException e) {
-            Log.e("", e.toString());
+            Log.e(TAG, e.toString());
         } catch (ParserConfigurationException e) {
-            Log.e("", e.toString());
+            Log.e(TAG, e.toString());
         }
 	}
 	
