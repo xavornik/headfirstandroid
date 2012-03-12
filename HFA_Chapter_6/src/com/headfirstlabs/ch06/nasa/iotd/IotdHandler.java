@@ -1,5 +1,13 @@
 package com.headfirstlabs.ch06.nasa.iotd;
 
+/**
+ * IotdHandler
+ * This handler will collect the Image Of The Day
+ * 
+ *  @author Geroen Joris - http://www.headfirstandroid.com/
+ * 
+ */
+
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;

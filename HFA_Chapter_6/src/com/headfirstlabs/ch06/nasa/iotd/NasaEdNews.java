@@ -1,5 +1,15 @@
 package com.headfirstlabs.ch06.nasa.iotd;
 
+/**
+ * NasaEdNews
+ * This class is the central class for the fragment for the News Of The Day
+ * 
+ * Based on, but customised, based on the requirements of the book. 
+ * 
+ *  @author Geroen Joris - http://www.headfirstandroid.com/
+ * 
+ */
+
 import java.net.URL;
 import java.util.ArrayList;
 

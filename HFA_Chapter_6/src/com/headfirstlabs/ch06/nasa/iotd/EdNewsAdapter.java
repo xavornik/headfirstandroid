@@ -1,5 +1,15 @@
 package com.headfirstlabs.ch06.nasa.iotd;
 
+/**
+ * EdNewsAdapter
+ * This adapter will loop over the newsitems, and put them in the rows of the ListView.
+ * 
+ * It was customly written, based on the requirements from the book.
+ * 
+ *  @author Geroen Joris - http://www.headfirstandroid.com/
+ * 
+ */
+
 import java.util.ArrayList;
 
 import android.content.Context;
