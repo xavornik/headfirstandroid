@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,7 +63,20 @@ public class NasaIotd extends Fragment implements IotdHandlerListener {
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.activity_main, container, false);
+		View view = inflater.inflate(R.layout.iotd, container, false);
+		final Button refreshButton = (Button) view.findViewById(R.id.refreshIotdButton);
+	    refreshButton.setOnClickListener(new View.OnClickListener() {
+	        public void onClick(View v) {
+	            refreshFromFeed();
+	        }
+	    });
+	    final Button wallpaperButton = (Button) view.findViewById(R.id.setWallpaperButton);
+	    wallpaperButton.setOnClickListener(new View.OnClickListener() {
+	        public void onClick(View v) {
+	            onSetWallpaper(v);
+	        }
+	    });
+		return view;
 	}
 
 	public void onStart() {
@@ -79,9 +93,6 @@ public class NasaIotd extends Fragment implements IotdHandlerListener {
 				iotdHandler.setListener(NasaIotd.this);
 				try {
 					iotdHandler.processFeed(getActivity(), new URL(URL));
-					setImageUrl(iotdHandler.getUrl());
-					imageThread = new RefreshImageThread();
-					imageThread.start();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -136,17 +147,18 @@ public class NasaIotd extends Fragment implements IotdHandlerListener {
 
 				ImageView imageView = (ImageView) getActivity().findViewById(
 						R.id.imageDisplay);
+				setImageUrl(url);
 				imageThread = new RefreshImageThread();
 				imageThread.start();
 				while (imageThread.isAlive()) {
-					//Just wait. The thread needs to be finished, otherwise getImage() will return null.
-					//If you want to see LogCat be filled up with messages, just put a System.out.println() here,
-					//it'll give you an idea on how long the thread is running.
-					//Please note: this is NOT the best way to work in Android, since your application will
-					//actually be paused until the thread finishes. In this case, that is not bad, actually:
-					//we are showing the user a dialog. You could, however, implement behavior here that after
-					//a certain amount of time, the thread is stopped, just to make sure the application will not
-					//hang completely on a slow connection.
+//					//Just wait. The thread needs to be finished, otherwise getImage() will return null.
+//					//If you want to see LogCat be filled up with messages, just put a System.out.println() here,
+//					//it'll give you an idea on how long the thread is running.
+//					//Please note: this is NOT the best way to work in Android, since your application will
+//					//actually be paused until the thread finishes. In this case, that is not bad, actually:
+//					//we are showing the user a dialog. You could, however, implement behavior here that after
+//					//a certain amount of time, the thread is stopped, just to make sure the application will not
+//					//hang completely on a slow connection.
 				}
 				imageView.setImageBitmap(getImage());
 
@@ -180,6 +192,7 @@ public class NasaIotd extends Fragment implements IotdHandlerListener {
 	}
 
 	static public class RefreshImageThread extends Thread {
+		
 		@Override
 		public void run() {
 			try {
