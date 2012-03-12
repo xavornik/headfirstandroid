@@ -1,5 +1,13 @@
 package com.headfirstlabs.ch06.nasa.iotd;
 
+/**
+ * NasaIotd
+ * This class is the central class for the fragment for the Image Of The Day
+ * 
+ *  @author Geroen Joris - http://www.headfirstandroid.com/
+ * 
+ */
+
 import java.io.IOException;
 import java.net.URL;
 

@@ -1,5 +1,16 @@
 package com.headfirstlabs.ch06.nasa.iotd;
 
+/**
+ * EdNewsHandler
+ * This handler will collect all the newsitems from the feed, and deliver an arraylist with
+ * the NewsItem model object in it. 
+ * 
+ * Customly written, based on requirements from the book.
+ * 
+ *  @author Geroen Joris - http://www.headfirstandroid.com/
+ * 
+ */
+
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
