@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/contact_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Sam"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/contact_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/contact_name"
+        android:layout_below="@+id/contact_name"
+        android:layout_marginTop="5dp"
+        android:text="111-222-333"
+        android:textSize="10dp" />
+
+    <Button
+        android:id="@+id/update_contact_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/contact_name"
+        android:layout_below="@+id/contact_phone"
+        android:layout_marginTop="10dp"
+        android:text="Update Contact" 
+        android:onClick="onUpdateContact"/>
+
+    <ImageView
+        android:id="@+id/contact_portrait"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/contact_name"
+        android:layout_marginRight="20dp"
+        android:adjustViewBounds="true"
+        android:background="#aaa" />
+
+    <Button
+        android:id="@+id/im_cool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I’m Cool" 
+        android:layout_centerInParent="true"
+        android:onClick="onImCoolButtonClick"/>
+
+</RelativeLayout>
